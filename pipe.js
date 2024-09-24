@@ -1,4 +1,4 @@
-const HOLE_HEIGHT = 120;
+const HOLE_HEIGHT = 180;
 const PIPE_WIDTH = 120;
 const PIPE_INTERVAL = 1500;
 const PIPE_SPEED = 0.75;
@@ -35,6 +35,10 @@ export function getPassedPipesCounts() {
   return passedPipeCount;
 }
 
+export function getPipeRects() {
+  return pipes.flatMap((pipe) => pipe.rects());
+}
+
 function createPipe() {
   const pipeElem = document.createElement("div");
   const topElem = createPipeSegment("top");
@@ -61,6 +65,12 @@ function createPipe() {
     remove() {
       pipes = pipes.filter((p) => p !== pipe);
       pipeElem.remove();
+    },
+    rects() {
+      return [
+        topElem.getBoundingClientRect(),
+        bottomElem.getBoundingClientRect(),
+      ];
     },
   };
   pipe.left = window.innerWidth;
