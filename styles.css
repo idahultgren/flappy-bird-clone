@@ -6,7 +6,14 @@
 
 body {
   margin: 0;
+  padding: 0;
   overflow: hidden;
+  background-image: url(/clouds-8182195_1920.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
 }
 
 .title {
@@ -32,12 +39,16 @@ body {
   --bird-top: -1000;
   --bird-size: 60px;
   position: absolute;
-  background-color: hsl(50, 75%, 50%);
+  background-image: url("/bird.svg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
   width: var(--bird-size);
   height: var(--bird-size);
   left: var(--bird-size);
   top: calc(var(--bird-top) * 1px);
   border-radius: 50%;
+  padding: 0;
 }
 
 .pipe {
@@ -51,7 +62,7 @@ body {
 .pipe > .segment {
   position: absolute;
   width: 100%;
-  background-color: hsl(100, 75%, 50%);
+  background-color: rgb(33, 111, 139);
 }
 
 .pipe > .top {
